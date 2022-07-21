@@ -14,6 +14,10 @@ import org.openqa.selenium.TakesScreenshot;
 public class Hooks {
 
 LoginPage loginPage = new LoginPage();
+
+
+
+
     @Before
     public void setUPAndGoLoginPage(){
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
