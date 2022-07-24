@@ -34,7 +34,7 @@ Feature: Default
 		And User lands on weekly display
 		And User clicks Day link and display Daily time
 		And User clicks on time box 
-		And User enters name in summary box and clicks create button	
+		And User enters name as "test" in summary box and clicks create button
 
 	#I should be able to create and to see my meetings and events on my calendar from "Calendar" module
 	#

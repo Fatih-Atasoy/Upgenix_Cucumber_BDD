@@ -21,22 +21,5 @@ public class AccountPage {
     public WebElement CalendarLink;
 
 
-    @FindBy(xpath = "//ol[@class='breadcrumb']/li")
-    public WebElement DisplayedType;
 
-    @FindBy(xpath = "//button[.='Day']")
-
-    public WebElement DayButton;
-    @FindBy(xpath = "//button[.='Week']")
-    public WebElement WeekButton;
-
-    @FindBy(xpath = "//button[.='Month']")
-    public WebElement MonthButton;
-
-
-    @FindBy(xpath = "//td[@class=' ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today']")
-    public WebElement scheduleForMonthAndYear;
-
-    @FindBy(xpath = "//td[@class=' ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today']/a")
-    public WebElement scheduleForDay;
 }
