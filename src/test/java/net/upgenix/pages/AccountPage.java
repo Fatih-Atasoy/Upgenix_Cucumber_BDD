@@ -6,21 +6,20 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class AccountPage {
-    public AccountPage (){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public AccountPage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
+
     @FindBy(xpath = "//span[@class='oe_topbar_name']")
     public WebElement accountName;
-
 
 
     @FindBy(xpath = "//a[@data-menu='logout']")
     public WebElement logoutButton;
 
-    @FindBy (xpath = "//a[@data-action-id='136']/span")
+    @FindBy(partialLinkText = "Calendar")
     public WebElement CalendarLink;
 
-    @FindBy (xpath = "(//li[@class='active'])[2]")
-    public WebElement weeklyDisplayed;
+
 
 }
