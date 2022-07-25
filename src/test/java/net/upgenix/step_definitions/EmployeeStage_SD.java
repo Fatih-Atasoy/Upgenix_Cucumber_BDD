@@ -42,8 +42,9 @@ public class EmployeeStage_SD {
 
     @When("User clicks Employees stage")
     public void user_clicks_employees_stage() {
-        wait.until(ExpectedConditions.titleIs(ConfigurationReader.getProperty("EmplTitle")));
-        Assert.assertTrue(employeePage.titleEmpl.getText().equals("Employees - Odoo"));
+        employeePage.emplStage.click();
+//        wait.until(ExpectedConditions.titleIs(ConfigurationReader.getProperty("EmplTitle")));
+//        Assert.assertTrue(employeePage.titleEmpl.getText().equals("Employees - Odoo"));
     }
 
     @When("User clicks Challenges stage")
