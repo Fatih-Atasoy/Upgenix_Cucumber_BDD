@@ -24,6 +24,7 @@ public class EmployeeStage_SD {
     public void user_enters_username(String username) {
         employeePage.inputLogin.sendKeys(username);
     }
+
     @When("User enters {string} password")
     public void user_enters_password(String password) {
         employeePage.inputPass.sendKeys(password);
@@ -33,34 +34,25 @@ public class EmployeeStage_SD {
     public void user_clicks_the_login_button() {
         employeePage.loginButton.click();
     }
+
     @Then("User should see the dashboard")
     public void user_should_see_the_dashboard() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        Assert.assertTrue(Driver.getDriver().getTitle().equals("Odoo"));
     }
 
     @When("User clicks Employees stage")
     public void user_clicks_employees_stage() {
-//        String actualTitle = Driver.getDriver().getTitle();
-//        String expectedTitle = "Employees - Odoo";
-//        Assert.assertEquals(expectedTitle, actualTitle);
         wait.until(ExpectedConditions.titleIs(ConfigurationReader.getProperty("EmplTitle")));
         Assert.assertTrue(employeePage.titleEmpl.getText().equals("Employees - Odoo"));
     }
 
     @When("User clicks Challenges stage")
     public void user_clicks_challenges_stage() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
     }
     @When("User clicks Departments stage")
     public void user_clicks_departments_stage() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
     }
     @Then("User should see the title")
     public void user_should_see_the_title() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
     }
 }
