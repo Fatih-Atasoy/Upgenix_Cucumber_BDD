@@ -19,11 +19,22 @@ public class EmployeePage {
     @FindBy(xpath = "//button[.='Log in']")
     public WebElement loginButton;
 
-    @FindBy(xpath = "//*[@id=\"oe_main_menu_navbar\"]/div[2]/ul[1]/li[1]/a/span")
+    @FindBy(xpath = "")
     public WebElement emplStage;
 
     @FindBy(xpath = "//title[.='#Inbox - Odoo']")
     public WebElement titleEmpl;
 
+    public void login(){
+        this.inputLogin.sendKeys("posmanager50@info.com");
+        this.inputPass.sendKeys("posmanager");
+        this.loginButton.click();
+    }
+
+    public void login(String inputLogin, String inputPass){
+        this.inputLogin.sendKeys("posmanager50@info.com");
+        this.inputPass.sendKeys("posmanager");
+        this.loginButton.click();
+    }
 
 }

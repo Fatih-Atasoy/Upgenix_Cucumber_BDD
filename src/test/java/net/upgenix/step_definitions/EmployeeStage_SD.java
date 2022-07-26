@@ -1,25 +1,23 @@
 package net.upgenix.step_definitions;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.upgenix.pages.EmployeePage;
 import net.upgenix.utilities.ConfigurationReader;
 import net.upgenix.utilities.Driver;
 import org.junit.Assert;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class EmployeeStage_SD {
 
     EmployeePage employeePage = new EmployeePage();
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
-    @Given("User is on the upgenix login page")
+    @When("User is on the upgenix login page")
     public void user_is_on_the_upgenix_login_page() {
         String url = ConfigurationReader.getProperty("url");
         Driver.getDriver().get(url);
     }
+
     @When("User enters {string} username")
     public void user_enters_username(String username) {
         employeePage.inputLogin.sendKeys(username);
@@ -38,6 +36,12 @@ public class EmployeeStage_SD {
     @Then("User should see the dashboard")
     public void user_should_see_the_dashboard() {
         Assert.assertTrue(Driver.getDriver().getTitle().equals("Odoo"));
+    }
+
+    @When("User is on the dashboard")
+    public void user_is_on_the_dashboard() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        employeePage.login();
     }
 
     @When("User clicks Employees stage")
