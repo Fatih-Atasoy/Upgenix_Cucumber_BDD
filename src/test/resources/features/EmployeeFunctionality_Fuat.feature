@@ -21,7 +21,7 @@ Feature: Upgenix app Employees module
       And User clicks Employees stage
       And User clicks Challenges stage
       And User clicks Departments stage
-      Then User should see the title
+      Then User should see the last stage title
 
 
     @CreatingEmployee
@@ -29,7 +29,8 @@ Feature: Upgenix app Employees module
 #      When User creates new employees in the Employees page
 
 
-#3. Verify that the user should be able to see created employee is listed after clicking the Employees module.
+    @ListedEmployee
+    Scenario: Verify that the user should be able to see created employee is listed after clicking the Employees module
 
 
 

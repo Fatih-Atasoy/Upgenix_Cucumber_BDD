@@ -60,14 +60,22 @@ public class EmployeeStage_SD {
         employeePage.challengesBtn.click();
         wait.until(ExpectedConditions.visibilityOf(employeePage.challengesBtn));
         employeePage.goalsHistoryBtn.click();
+        wait.until(ExpectedConditions.visibilityOf(employeePage.goalsHistoryBtn));
+    }
 
-    }
     @When("User clicks Departments stage")
-    public void user_clicks_departments_stage() {
+    public void user_clicks_departments_stage() throws InterruptedException {
         employeePage.departmentsBtn.click();
+        Thread.sleep(7000);
     }
-    @Then("User should see the title")
-    public void user_should_see_the_title() {
-        
+    @Then("User should see the last stage title")
+    public void user_should_see_the_last_stage_title() {
+
+//        wait.until(ExpectedConditions.titleIs("Departments - Odoo"));
+        //Assert.assertTrue(Driver.getDriver().getTitle().equals("Departments - Odoo"));
+        String act = Driver.getDriver().getTitle();
+        String exp = "Departments - Odoo";
+
+        Assert.assertEquals(exp,act);
     }
 }
