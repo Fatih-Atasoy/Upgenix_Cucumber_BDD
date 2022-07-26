@@ -6,11 +6,13 @@ import net.upgenix.pages.EmployeePage;
 import net.upgenix.utilities.ConfigurationReader;
 import net.upgenix.utilities.Driver;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class EmployeeStage_SD {
 
     EmployeePage employeePage = new EmployeePage();
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(),3);
 
     @When("User is on the upgenix login page")
     public void user_is_on_the_upgenix_login_page() {
@@ -47,17 +49,25 @@ public class EmployeeStage_SD {
     @When("User clicks Employees stage")
     public void user_clicks_employees_stage() {
         employeePage.emplStage.click();
-//        wait.until(ExpectedConditions.titleIs(ConfigurationReader.getProperty("EmplTitle")));
-//        Assert.assertTrue(employeePage.titleEmpl.getText().equals("Employees - Odoo"));
+        wait.until(ExpectedConditions.titleIs(ConfigurationReader.getProperty("EmplTitle")));
+        Assert.assertTrue(Driver.getDriver().getTitle().equals("Employees - Odoo"));
     }
 
     @When("User clicks Challenges stage")
     public void user_clicks_challenges_stage() {
+        employeePage.badgesBtn.click();
+        wait.until(ExpectedConditions.visibilityOf(employeePage.badgesBtn));
+        employeePage.challengesBtn.click();
+        wait.until(ExpectedConditions.visibilityOf(employeePage.challengesBtn));
+        employeePage.goalsHistoryBtn.click();
+
     }
     @When("User clicks Departments stage")
     public void user_clicks_departments_stage() {
+        employeePage.departmentsBtn.click();
     }
     @Then("User should see the title")
     public void user_should_see_the_title() {
+        
     }
 }

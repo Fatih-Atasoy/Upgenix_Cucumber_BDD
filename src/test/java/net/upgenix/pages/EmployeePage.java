@@ -22,8 +22,17 @@ public class EmployeePage {
     @FindBy(partialLinkText = "Employees")
     public WebElement emplStage;
 
-    @FindBy(xpath = "//title[.='#Inbox - Odoo']")
-    public WebElement titleEmpl;
+    @FindBy(partialLinkText = "Badges")
+    public WebElement badgesBtn;
+
+    @FindBy(partialLinkText = "Challenges")
+    public WebElement challengesBtn;
+
+    @FindBy(partialLinkText = "Goals History")
+    public WebElement goalsHistoryBtn;
+
+    @FindBy(partialLinkText = "Departments")
+    public WebElement departmentsBtn;
 
     public void login(){
         this.inputLogin.sendKeys("posmanager50@info.com");

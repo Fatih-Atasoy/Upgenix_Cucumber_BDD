@@ -26,7 +26,7 @@ Feature: Upgenix app Employees module
 
     @CreatingEmployee
     Scenario: Verify that the "Employee created" message appears under full profile
-      When
+#      When User creates new employees in the Employees page
 
 
 #3. Verify that the user should be able to see created employee is listed after clicking the Employees module.
