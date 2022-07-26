@@ -22,8 +22,13 @@ Feature: Upgenix app Employees module
       And User clicks Challenges stage
       And User clicks Departments stage
       Then User should see the title
-#2. Verify that the "Employee created" message appears under full profile.
-#
+
+
+    @CreatingEmployee
+    Scenario: Verify that the "Employee created" message appears under full profile
+      When
+
+
 #3. Verify that the user should be able to see created employee is listed after clicking the Employees module.
 
 

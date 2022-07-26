@@ -19,7 +19,7 @@ public class EmployeePage {
     @FindBy(xpath = "//button[.='Log in']")
     public WebElement loginButton;
 
-    @FindBy(xpath = "")
+    @FindBy(partialLinkText = "Employees")
     public WebElement emplStage;
 
     @FindBy(xpath = "//title[.='#Inbox - Odoo']")
