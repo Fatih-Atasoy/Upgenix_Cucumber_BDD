@@ -77,11 +77,13 @@ public class EmployeeStage_SD {
     }
 
     @When("User is on the employees dashboard")
-    public void user_is_on_the_employees_dashboard() {
+    public void user_is_on_the_employees_dashboard() throws InterruptedException {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         employeePage.login();
+        Thread.sleep(3000);
         employeePage.emplStage.click();
     }
+
     @When("User creates new employees {string} in the Employees stage")
     public void user_creates_new_employees_in_the_employees_stage(String name) throws InterruptedException {
         Thread.sleep(3000);
@@ -97,6 +99,15 @@ public class EmployeeStage_SD {
         //String expected = "Employee created";
         //String actual = employeePage.createdMessage.getText();
         //Assert.assertEquals(expected,actual);
+    }
+
+    @Then("User should see listed employees in the Employees stage")
+    public void user_should_see_listed_employees_in_the_employees_stage() {
+
+        String actual = Driver.getDriver().getTitle();
+        String exp = "Employees - Odoo";
+
+        Assert.assertEquals(exp,actual);
     }
 
 
