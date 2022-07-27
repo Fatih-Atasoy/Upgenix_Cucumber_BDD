@@ -28,7 +28,7 @@ Feature: Upgenix app Employees module
     Scenario Outline: Verify that the "Employee created" message appears under full profile
       When User is on the employees dashboard
       And User creates new employees "<name>" in the Employees stage
-      Then User should see the "Employee created" message under full profile
+      Then User should see the Employee created message under full profile
 
       @Employee
       Examples: Employee's name

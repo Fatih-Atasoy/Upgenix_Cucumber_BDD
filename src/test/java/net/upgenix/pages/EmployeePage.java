@@ -41,7 +41,11 @@ public class EmployeePage {
     @FindBy(xpath = "//input[@class='o_field_char o_field_widget o_input o_required_modifier']")
     public WebElement employeesName;
 
-    @FindBy
+    @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o_form_button_save']")
+    public WebElement savedMessage;
+
+    @FindBy(xpath = "//p[.='Employee created']")
+    public WebElement createdMessage;
 
     public void login(){
         this.inputLogin.sendKeys("posmanager50@info.com");

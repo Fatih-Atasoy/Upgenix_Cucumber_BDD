@@ -83,15 +83,22 @@ public class EmployeeStage_SD {
         employeePage.emplStage.click();
     }
     @When("User creates new employees {string} in the Employees stage")
-    public void user_creates_new_employees_in_the_employees_stage(String name) {
+    public void user_creates_new_employees_in_the_employees_stage(String name) throws InterruptedException {
+        Thread.sleep(3000);
         employeePage.createBtn.click();
         wait.until(ExpectedConditions.titleIs("New - Odoo"));
         employeePage.employeesName.sendKeys(name);
+        employeePage.savedMessage.click();
     }
 
-    @Then("User should see the {string} message under full profile")
-    public void user_should_see_the_message_under_full_profile(String string) {
+    @Then("User should see the Employee created message under full profile")
+    public void user_should_see_the_message_under_full_profile() {
+//        Assert.assertTrue(employeePage.createdMessage.isDisplayed());
+        String expected = "Employee created";
+        String actual = employeePage.createdMessage.getText();
 
+        Assert.assertEquals(expected,actual);
     }
+
 
 }
