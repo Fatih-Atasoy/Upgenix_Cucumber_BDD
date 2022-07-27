@@ -37,8 +37,6 @@ Feature: Upgenix app Employees module
       |Khabib Nurmagomedov|
       |Cristiano Ronaldo  |
 
-
-
     @ListedEmployee
     Scenario: Verify that the user should be able to see created employee is listed after clicking the Employees module
 
