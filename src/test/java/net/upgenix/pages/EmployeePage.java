@@ -41,6 +41,8 @@ public class EmployeePage {
     @FindBy(xpath = "//input[@class='o_field_char o_field_widget o_input o_required_modifier']")
     public WebElement employeesName;
 
+    @FindBy
+
     public void login(){
         this.inputLogin.sendKeys("posmanager50@info.com");
         this.inputPass.sendKeys("posmanager");

@@ -30,6 +30,7 @@ Feature: Upgenix app Employees module
       And User creates new employees "<name>" in the Employees stage
       Then User should see the "Employee created" message under full profile
 
+      @Employee
       Examples: Employee's name
       |name               |
       |Dustin Prior       |

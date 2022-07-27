@@ -70,12 +70,28 @@ public class EmployeeStage_SD {
     }
     @Then("User should see the last stage title")
     public void user_should_see_the_last_stage_title() {
-
-//        wait.until(ExpectedConditions.titleIs("Departments - Odoo"));
-        //Assert.assertTrue(Driver.getDriver().getTitle().equals("Departments - Odoo"));
-        String act = Driver.getDriver().getTitle();
-        String exp = "Departments - Odoo";
-
-        Assert.assertEquals(exp,act);
+        Assert.assertTrue(Driver.getDriver().getTitle().equals("Departments - Odoo"));
+        //String act = Driver.getDriver().getTitle();
+        //String exp = "Departments - Odoo";
+        //Assert.assertEquals(exp,act);
     }
+
+    @When("User is on the employees dashboard")
+    public void user_is_on_the_employees_dashboard() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        employeePage.login();
+        employeePage.emplStage.click();
+    }
+    @When("User creates new employees {string} in the Employees stage")
+    public void user_creates_new_employees_in_the_employees_stage(String name) {
+        employeePage.createBtn.click();
+        wait.until(ExpectedConditions.titleIs("New - Odoo"));
+        employeePage.employeesName.sendKeys(name);
+    }
+
+    @Then("User should see the {string} message under full profile")
+    public void user_should_see_the_message_under_full_profile(String string) {
+
+    }
+
 }
