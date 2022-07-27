@@ -93,12 +93,13 @@ public class EmployeeStage_SD {
 
     @Then("User should see the Employee created message under full profile")
     public void user_should_see_the_message_under_full_profile() {
-//        Assert.assertTrue(employeePage.createdMessage.isDisplayed());
-        String expected = "Employee created";
-        String actual = employeePage.createdMessage.getText();
-
-        Assert.assertEquals(expected,actual);
+        Assert.assertTrue(employeePage.createdMessage.isDisplayed());
+        //String expected = "Employee created";
+        //String actual = employeePage.createdMessage.getText();
+        //Assert.assertEquals(expected,actual);
     }
+
+
 
 
 }

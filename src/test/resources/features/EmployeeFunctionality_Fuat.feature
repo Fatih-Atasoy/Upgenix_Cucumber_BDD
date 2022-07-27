@@ -39,7 +39,8 @@ Feature: Upgenix app Employees module
 
     @ListedEmployee
     Scenario: Verify that the user should be able to see created employee is listed after clicking the Employees module
-
+      When User is on the employees dashboard
+      And
 
 
 
