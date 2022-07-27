@@ -34,6 +34,13 @@ public class EmployeePage {
     @FindBy(partialLinkText = "Departments")
     public WebElement departmentsBtn;
 
+//    @FindBy(xpath = "/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/button[1]")
+    @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o-kanban-button-new btn-default']")
+    public WebElement createBtn;
+
+    @FindBy(xpath = "//input[@class='o_field_char o_field_widget o_input o_required_modifier']")
+    public WebElement employeesName;
+
     public void login(){
         this.inputLogin.sendKeys("posmanager50@info.com");
         this.inputPass.sendKeys("posmanager");
