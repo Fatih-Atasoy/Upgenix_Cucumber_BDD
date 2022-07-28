@@ -110,12 +110,17 @@ public class EmployeeStage_SD {
     }
 
     @When("User edits created employees in the Employees module")
-    public void user_edits_created_employees_in_the_employees_module() {
+    public void user_edits_created_employees_in_the_employees_module() throws InterruptedException {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         employeePage.login();
-        wait.until(ExpectedConditions.titleIs("#Inbox - Odoo"));
+        Thread.sleep(3000);
         employeePage.emplStage.click();
-
+        Thread.sleep(3000);
+        employeePage.chooseEmployee.click();
+        employeePage.editEmployee.click();
+        wait.until(ExpectedConditions.titleIs("Alexis Sanchez - Odoo"));
+        employeePage.nameEdit.sendKeys("Suarez");
+        employeePage.savedMessage.click();
     }
 
     @Then("User should see the edited name in the Employees module")
