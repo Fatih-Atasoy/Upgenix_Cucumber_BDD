@@ -88,6 +88,7 @@ public class EmployeeStage_SD {
     public void user_creates_new_employees_in_the_employees_stage(String name) throws InterruptedException {
         Thread.sleep(3000);
         employeePage.createBtn.click();
+        Thread.sleep(3000);
         wait.until(ExpectedConditions.titleIs("New - Odoo"));
         employeePage.employeesName.sendKeys(name);
         employeePage.savedMessage.click();
@@ -102,13 +103,12 @@ public class EmployeeStage_SD {
     }
 
     @Then("User should see listed employees in the Employees stage")
-    public void user_should_see_listed_employees_in_the_employees_stage() {
-
-        String actual = Driver.getDriver().getTitle();
-        String exp = "Employees - Odoo";
-
-        Assert.assertEquals(exp,actual);
+    public void user_should_see_listed_employees_in_the_employees_stage() throws InterruptedException {
+        employeePage.emplStage.click();
+        wait.until(ExpectedConditions.titleIs("Employees - Odoo"));
+        Assert.assertTrue(Driver.getDriver().getTitle().equals("Employees - Odoo"));
     }
+
 
 
 

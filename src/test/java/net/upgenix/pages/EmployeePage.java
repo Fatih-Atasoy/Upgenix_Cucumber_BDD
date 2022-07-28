@@ -4,6 +4,7 @@ import net.upgenix.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 public class EmployeePage {
 
     public EmployeePage(){
@@ -34,7 +35,6 @@ public class EmployeePage {
     @FindBy(partialLinkText = "Departments")
     public WebElement departmentsBtn;
 
-//    @FindBy(xpath = "/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/button[1]")
     @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o-kanban-button-new btn-default']")
     public WebElement createBtn;
 
@@ -58,5 +58,4 @@ public class EmployeePage {
         this.inputPass.sendKeys("posmanager");
         this.loginButton.click();
     }
-
 }

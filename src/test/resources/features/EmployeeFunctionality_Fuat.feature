@@ -32,8 +32,6 @@ Feature: Upgenix app Employees module
     @Employee
     Examples: Employee's name
     |name               |
-    |Dustin Prior       |
-    |Khabib Nurmagomedov|
     |Cristiano Ronaldo  |
 
   @ListedEmployee
@@ -46,7 +44,6 @@ Feature: Upgenix app Employees module
     Examples: Employee's name
       | name           |
       | Lionel Messi   |
-      | Alexis Sanchez |
 
 
 
