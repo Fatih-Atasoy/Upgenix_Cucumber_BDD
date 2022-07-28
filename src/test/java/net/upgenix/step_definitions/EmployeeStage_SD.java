@@ -111,7 +111,13 @@ public class EmployeeStage_SD {
 
     @When("User edits created employees in the Employees module")
     public void user_edits_created_employees_in_the_employees_module() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        employeePage.login();
+        wait.until(ExpectedConditions.titleIs("#Inbox - Odoo"));
+        employeePage.emplStage.click();
+
     }
+
     @Then("User should see the edited name in the Employees module")
     public void user_should_see_the_edited_name_in_the_employees_module() {
     }
