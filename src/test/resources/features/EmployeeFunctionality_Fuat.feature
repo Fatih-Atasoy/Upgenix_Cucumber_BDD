@@ -45,6 +45,10 @@ Feature: Upgenix app Employees module
       | name           |
       | Lionel Messi   |
 
+    @EditingEmployee
     Scenario: Verify that the user can edit a new employee from "Employees" module
+      When User is on the employees dashboard
+      And User edits created employees in the Employees module
+      Then User should see the edited name in the Employees module
 
 
