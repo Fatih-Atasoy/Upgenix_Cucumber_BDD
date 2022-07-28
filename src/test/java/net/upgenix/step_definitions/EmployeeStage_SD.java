@@ -109,7 +109,12 @@ public class EmployeeStage_SD {
         Assert.assertTrue(Driver.getDriver().getTitle().equals("Employees - Odoo"));
     }
 
-
+    @When("User edits created employees in the Employees module")
+    public void user_edits_created_employees_in_the_employees_module() {
+    }
+    @Then("User should see the edited name in the Employees module")
+    public void user_should_see_the_edited_name_in_the_employees_module() {
+    }
 
 
 
