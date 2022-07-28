@@ -45,7 +45,6 @@ Feature: Upgenix app Employees module
       | name           |
       | Lionel Messi   |
 
-
-
+    Scenario: Verify that the user can edit a new employee from "Employees" module
 
 
