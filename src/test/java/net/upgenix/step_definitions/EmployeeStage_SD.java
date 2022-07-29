@@ -119,6 +119,7 @@ public class EmployeeStage_SD {
         employeePage.chooseEmployee.click();
         employeePage.editEmployee.click();
         wait.until(ExpectedConditions.titleIs("Alexis Sanchez - Odoo"));
+        employeePage.nameEdit.clear();
         employeePage.nameEdit.sendKeys("Suarez");
         employeePage.savedMessage.click();
     }
