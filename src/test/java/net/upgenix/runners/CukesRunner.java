@@ -15,9 +15,9 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "net/upgenix/step_definitions",
         dryRun = false,
-        tags = "@EmployeeStage"
-
+        tags = "@EditingEmployee"
 )
+
 public class CukesRunner {
 }
 
