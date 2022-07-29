@@ -53,7 +53,7 @@ public class EmployeePage {
     @FindBy(xpath = "//html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/div[1]/button[1]")
     public WebElement editEmployee;
 
-    @FindBy(xpath = "//*[@id=\"o_field_input_1338\"]")
+    @FindBy(xpath = "//*[@id=\"o_field_input_678\"]")
     public WebElement nameEdit;
 
     public void login(){
