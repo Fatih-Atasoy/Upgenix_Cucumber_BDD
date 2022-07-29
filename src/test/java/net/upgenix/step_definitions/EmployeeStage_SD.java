@@ -118,14 +118,16 @@ public class EmployeeStage_SD {
         Thread.sleep(3000);
         employeePage.chooseEmployee.click();
         employeePage.editEmployee.click();
-        wait.until(ExpectedConditions.titleIs("Alexis Sanchez - Odoo"));
+        Thread.sleep(3000);
         employeePage.nameEdit.clear();
-        employeePage.nameEdit.sendKeys("Suarez");
+        employeePage.nameEdit.sendKeys("Sterling");
+        Thread.sleep(3000);
         employeePage.savedMessage.click();
     }
 
     @Then("User should see the edited name in the Employees module")
     public void user_should_see_the_edited_name_in_the_employees_module() {
+        employeePage.emplStage.click();
     }
 
 
