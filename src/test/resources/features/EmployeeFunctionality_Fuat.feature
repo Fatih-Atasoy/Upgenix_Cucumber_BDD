@@ -1,9 +1,10 @@
+@UPGN-344
 Feature: Upgenix app Employees module
 
   Account is: PosManager
   Background: As a Posmanager, I should be able to create and edit a new employee from "Employees" module
 
-
+  @UPGN-339
   Scenario Outline: User enters posmanager info
     When User is on the upgenix login page
     And User enters "<username>" username
@@ -15,7 +16,7 @@ Feature: Upgenix app Employees module
       | username              | password   |
       | posmanager50@info.com | posmanager |
 
-
+  @UPGN-340
   Scenario: Verify that all buttons work as expected at the employees stage
     When User is on the dashboard
     And User clicks Employees stage
@@ -23,7 +24,7 @@ Feature: Upgenix app Employees module
     And User clicks Departments stage
     Then User should see the last stage title
 
-
+  @UPGN-341
   Scenario Outline: Verify that the "Employee created" message appears under full profile
     When User is on the employees dashboard
     And User creates new employees "<name>" in the Employees stage
@@ -33,7 +34,7 @@ Feature: Upgenix app Employees module
     |name               |
     |Cristiano Ronaldo  |
 
-
+  @UPGN-342
   Scenario Outline: Verify that the user should be able to see created employee is listed after clicking the Employees module
     When User is on the employees dashboard
     And User creates new employees "<name>" in the Employees stage
@@ -43,10 +44,10 @@ Feature: Upgenix app Employees module
       | name           |
       | Lionel Messi   |
 
-
-    Scenario: Verify that the user can edit a new employee from "Employees" module
-      When User is on the employees dashboard
-      And User edits created employees in the Employees module
-      Then User should see the edited name in the Employees module
+  @UPGN-343
+  Scenario: Verify that the user can edit a new employee from "Employees" module
+    When User is on the employees dashboard
+    And User edits created employees in the Employees module
+    Then User should see the edited name in the Employees module
 
 
