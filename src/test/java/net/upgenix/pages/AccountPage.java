@@ -20,6 +20,8 @@ public class AccountPage {
     @FindBy(partialLinkText = "Calendar")
     public WebElement CalendarLink;
 
+    @FindBy(xpath = "//a[@href=\"/web#menu_id=445&action=\"]/span")
+    public WebElement salesLink;
 
 
 }
