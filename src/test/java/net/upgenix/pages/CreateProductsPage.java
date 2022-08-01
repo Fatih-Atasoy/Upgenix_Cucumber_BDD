@@ -23,6 +23,22 @@ public class CreateProductsPage {
 
 
 
+
+    @FindBy(xpath = "(//input[@type='text'])[7]") // by name ?
+    public WebElement barcodeField;
+
+    @FindBy(xpath = "(//input[@class='o_input'])[1]") // by id ?
+    public WebElement salesPriceField;
+
+    @FindBy(xpath = "(//input[@class='o_input'])[2]") // by id ?
+    public WebElement costPriceField;
+
+    @FindBy(xpath = "//img[@class='img img-responsive']") // by name ?
+    public WebElement photoEditField;
+
+
+
+
 }
 
 
