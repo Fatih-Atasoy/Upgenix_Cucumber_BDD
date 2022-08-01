@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "net/upgenix/step_definitions",
         dryRun = false,
-        tags = ""
+        tags = "@UPGN-335"
 
 )
 public class CukesRunner {

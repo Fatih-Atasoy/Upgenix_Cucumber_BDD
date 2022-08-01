@@ -1,8 +1,6 @@
 package net.upgenix.step_definitions;
 
 import io.cucumber.java.en.When;
-import net.upgenix.pages.AccountPage;
-import net.upgenix.pages.LoginPage;
 import net.upgenix.utilities.ConfigurationReader;
 import net.upgenix.utilities.Driver;
 import org.junit.Assert;

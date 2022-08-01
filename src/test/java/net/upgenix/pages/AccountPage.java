@@ -14,11 +14,16 @@ public class AccountPage {
     public WebElement accountName;
 
 
+    @FindBy(xpath = "//li[@class='o_user_menu']/a")
+    public WebElement UserMenu;
+
     @FindBy(xpath = "//a[@data-menu='logout']")
     public WebElement logoutButton;
 
     @FindBy(partialLinkText = "Calendar")
     public WebElement CalendarLink;
+
+
 
 
 
