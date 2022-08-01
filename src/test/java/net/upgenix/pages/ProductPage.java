@@ -13,6 +13,8 @@ public class ProductPage {
 
     }
 
-    @FindBy()
+    @FindBy(xpath = "(//button[@type='button'])[6]")
     public WebElement createButton;
+
+
 }

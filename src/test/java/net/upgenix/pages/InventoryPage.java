@@ -12,9 +12,8 @@ public class InventoryPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy() // product button
+    @FindBy(xpath = "(//span[@class='oe_menu_text'])[63]") // product button
     public WebElement productButton;
-
 
 
 }
