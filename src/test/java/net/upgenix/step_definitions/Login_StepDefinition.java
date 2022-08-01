@@ -11,15 +11,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class Login_StepDefinition {
-    LoginPage loginPage =new LoginPage();
-    AccountPage accountPage =new AccountPage();
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(),3);
+    LoginPage loginPage = new LoginPage();
+    AccountPage accountPage = new AccountPage();
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 3);
 
     @When("User login for testing other functionality")
     public void user_login_for_testing_other_functionality() {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
-        loginPage.userName.sendKeys(ConfigurationReader.getProperty("validUsername"));
-        loginPage.password.sendKeys(ConfigurationReader.getProperty("validPassword"));
+        for (int i = 0; i < ConfigurationReader.getProperty("validUsername").length(); i++) {
+            loginPage.userName.sendKeys("" + ConfigurationReader.getProperty("validUsername").charAt(i));
+        }
+        for (int i = 0; i < ConfigurationReader.getProperty("validPassword").length(); i++) {
+            loginPage.password.sendKeys("" + ConfigurationReader.getProperty("validPassword").charAt(i));
+        }
         loginPage.LoginButton.click();
         wait.until(ExpectedConditions.visibilityOf(accountPage.accountName));
         Assert.assertTrue((accountPage.accountName.getText()).toLowerCase().

@@ -9,24 +9,20 @@ import net.upgenix.utilities.BrowserUtils;
 import net.upgenix.utilities.ConfigurationReader;
 import net.upgenix.utilities.Driver;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
 
 public class Calendar_StepDefinition {
-    String actualResult,
-            expectedResult,
-            eventName;
-
+    LoginPage loginPage = new LoginPage();
     AccountPage accountPage = new AccountPage();
     CalendarPage calendarPage = new CalendarPage();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
     @When("Logged user click calender link")
     public void logged_user_click_calender_link() {
-          wait.until(ExpectedConditions.visibilityOf(accountPage.CalendarLink));
+        wait.until(ExpectedConditions.titleIs("#Inbox - Odoo"));
+        wait.until(ExpectedConditions.visibilityOf(accountPage.CalendarLink));
         accountPage.CalendarLink.click();
     }
 
@@ -39,60 +35,42 @@ public class Calendar_StepDefinition {
 
     @When("User clicks Day link and display Daily time")
     public void user_clicks_day_link_and_display_daily_time() {
-       wait.until(ExpectedConditions.visibilityOf(calendarPage.DayButton));
+        wait.until(ExpectedConditions.visibilityOf(calendarPage.DayButton));
         calendarPage.DayButton.click();
-//        BrowserUtils.sleep(10);
+        wait.until(ExpectedConditions.attributeContains(calendarPage.DayButton, "class", "active"));
         String Day = calendarPage.scheduleForDay.getText();
-        int MonthNumber = Integer.parseInt(calendarPage.scheduleForMonthAndYear.getAttribute("data-month"))+1;
-        String Month= (MonthNumber==1)? "January" : (MonthNumber==2)? "February" :(MonthNumber==3)? "March" :
-                (MonthNumber==4)? "April" :(MonthNumber==5)? "May" :(MonthNumber==6)? "June" :
-                        (MonthNumber==7)? "July" :(MonthNumber==8)? "August" :(MonthNumber==9)? "September" :
-                                (MonthNumber==10)? "October" :(MonthNumber==11)? "November" : "December";
+        int MonthNumber = Integer.parseInt(calendarPage.scheduleForMonthAndYear.getAttribute("data-month")) + 1;
+        String Month = (MonthNumber == 1) ? "January" : (MonthNumber == 2) ? "February" : (MonthNumber == 3) ? "March" :
+                (MonthNumber == 4) ? "April" : (MonthNumber == 5) ? "May" : (MonthNumber == 6) ? "June" :
+                        (MonthNumber == 7) ? "July" : (MonthNumber == 8) ? "August" : (MonthNumber == 9) ? "September" :
+                                (MonthNumber == 10) ? "October" : (MonthNumber == 11) ? "November" : "December";
 
         int Year = Integer.parseInt(calendarPage.scheduleForMonthAndYear.getAttribute("data-year"));
-//        System.out.println("Day = " + Day);
-//        System.out.println("Month = " + Month);
-//        System.out.println("Year = " + Year);
-//        System.out.println("MonthNumber = " + MonthNumber);
 
-        expectedResult="Meetings ("+Month+" "+Day+", "+Year+")";
-//        //Meetings (July 22, 2022)
+        String expectedResult = "Meetings (" + Month + " " + Day + ", " + Year + ")";
 
-       // System.out.println("expectedResult = " + expectedResult);
-        BrowserUtils.sleep(2);
-       // wait.until(ExpectedConditions.visibilityOf());
-        actualResult=calendarPage.DisplayedType.getText();
-        Assert.assertEquals(actualResult,expectedResult);
-       // System.out.println("actualResult = " + actualResult);
+        String actualResult = calendarPage.DisplayedType.getText();
+
+        Assert.assertEquals(actualResult, expectedResult);
+
     }
 
 
     @Then("User clicks Month link and display Month time")
     public void userClicksMonthLinkAndDisplayMonthTime() {
-        wait.until(ExpectedConditions.visibilityOf(calendarPage.MonthButton));
-            calendarPage.MonthButton.click();
-       // String Day = calendarPage.scheduleForDay.getText();
-        int MonthNumber = Integer.parseInt(calendarPage.scheduleForMonthAndYear.getAttribute("data-month"))+1;
-        String Month= (MonthNumber==1)? "January" : (MonthNumber==2)? "February" :(MonthNumber==3)? "March" :
-                (MonthNumber==4)? "April" :(MonthNumber==5)? "May" :(MonthNumber==6)? "June" :
-                        (MonthNumber==7)? "July" :(MonthNumber==8)? "August" :(MonthNumber==9)? "September" :
-                                (MonthNumber==10)? "October" :(MonthNumber==11)? "November" : "December";
-
+        calendarPage.MonthButton.click();
+        wait.until(ExpectedConditions.attributeContains(calendarPage.MonthButton, "class", "active"));
+        int MonthNumber = Integer.parseInt(calendarPage.scheduleForMonthAndYear.getAttribute("data-month")) + 1;
+        String Month = (MonthNumber == 1) ? "January" : (MonthNumber == 2) ? "February" : (MonthNumber == 3) ? "March" :
+                (MonthNumber == 4) ? "April" : (MonthNumber == 5) ? "May" : (MonthNumber == 6) ? "June" :
+                        (MonthNumber == 7) ? "July" : (MonthNumber == 8) ? "August" : (MonthNumber == 9) ? "September" :
+                                (MonthNumber == 10) ? "October" : (MonthNumber == 11) ? "November" : "December";
+        String Day = calendarPage.scheduleForDay.getText();
         int Year = Integer.parseInt(calendarPage.scheduleForMonthAndYear.getAttribute("data-year"));
-//        System.out.println("Day = " + Day);
-//        System.out.println("Month = " + Month);
-//        System.out.println("Year = " + Year);
-//        System.out.println("MonthNumber = " + MonthNumber);
+        String expectedResult = "Meetings (" + Month + " " + Year + ")";
 
-        expectedResult="Meetings ("+Month+" "+Year+")";
-//        //Meetings (July 2022)
-
-        // System.out.println("expectedResult = " + expectedResult);
-       // BrowserUtils.sleep(5);
-       wait.until(ExpectedConditions.visibilityOf(calendarPage.ResponsibleField));
-        actualResult=calendarPage.DisplayedType.getText();
-        Assert.assertEquals(actualResult,expectedResult);
-        // System.out.println("actualResult = " + actualResult);
+        String actualResult = calendarPage.DisplayedType.getText();
+        Assert.assertEquals(actualResult, expectedResult);
 
     }
 
@@ -104,45 +82,100 @@ public class Calendar_StepDefinition {
     }
 
     @And("User enters name as {string} in summary box and clicks create button")
-    public void userEntersNameAsInSummaryBoxAndClicksCreateButton(String arg0) {
-        eventName=arg0;
-            calendarPage.SummaryBox.sendKeys(arg0);
+    public void userEntersNameAsInSummaryBoxAndClicksCreateButton(String str) {
+        str =ConfigurationReader.getProperty("eventName");
+        for (int i = 0; i < str.length(); i++) {
+            calendarPage.SummaryBox.sendKeys("" + str.charAt(i));
+        }
         calendarPage.CreateButton.click();
         Assert.assertTrue(calendarPage.CreatedEventInTimeBox.isDisplayed());
-        Assert.assertEquals(calendarPage.CreatedEventInTimeBox.getText(),eventName);
-        System.out.println("calendarPage.CreatedEventInTimeBox.getText() = " + calendarPage.CreatedEventInTimeBox.getText());
+        Assert.assertEquals(calendarPage.CreatedEventInTimeBox.getText(), ConfigurationReader.getProperty("eventName"));
     }
-
 
     @When("User see created event.")
     public void user_see_created_event() {
         Assert.assertTrue(calendarPage.CreatedEventInTimeBox.isDisplayed());
-        Assert.assertEquals(calendarPage.CreatedEventInTimeBox.getText(),eventName);
     }
 
     @When("User reach events' details")
     public void user_reach_events_details() {
-     //   calendarPage.CreatedEventInTimeBox.click();
-       // Assert.assertTrue(calendarPage.CreatedEventDetails.isDisplayed());
-      //  Assert.assertEquals(calendarPage.CreatedEventDetails.getText(),"Open: "+eventName);
+        calendarPage.CreatedEvent.click();
+        Assert.assertTrue(calendarPage.CreatedEventDetails.isDisplayed());
     }
 
     @When("Users edit events")
     public void users_edit_events() {
+        calendarPage.EditButton.click();
+        wait.until(ExpectedConditions.visibilityOf(calendarPage.SaveButton));
+        wait.until(ExpectedConditions.visibilityOf(calendarPage.MeetingSubjectBox));
+        calendarPage.MeetingSubjectBox.sendKeys(" ");
+        for (int i = 0; i < ConfigurationReader.getProperty("eventName").length(); i++) {
+            calendarPage.MeetingSubjectBox.sendKeys("" + ConfigurationReader.getProperty("eventName").charAt(i));
+        }
+
+        calendarPage.SaveButton.click();
+        wait.until(ExpectedConditions.invisibilityOf(calendarPage.LoadingWord));
+        Assert.assertEquals(calendarPage.CreatedEventInTimeBox.getText(), ConfigurationReader.getProperty("eventName")+" "+ConfigurationReader.getProperty("eventName"));
     }
 
     @When("{string} see created event.")
     public void see_created_event(String string) {
+        accountPage.UserMenu.click();
+        accountPage.logoutButton.click();
+        for (int i = 0; i < (string + "@info.com").length(); i++) {
+            loginPage.userName.sendKeys("" + (string + "@info.com").charAt(i));
+        }
+
+        String password = "";
+        if (string.charAt(0) == 'p') {
+            password = "posmanager";
+        } else if (string.charAt(0) == 's') {
+            password = "salesmanager";
+        }
+        for (int i = 0; i < password.length(); i++) {
+            loginPage.password.sendKeys("" + password.charAt(i));
+        }
+        loginPage.LoginButton.click();
+        wait.until(ExpectedConditions.titleIs("#Inbox - Odoo"));
+        wait.until(ExpectedConditions.visibilityOf(accountPage.CalendarLink));
+        accountPage.CalendarLink.click();
+
+        wait.until(ExpectedConditions.visibilityOf(calendarPage.DayButton));
+        calendarPage.DayButton.click();
+        wait.until(ExpectedConditions.attributeContains(calendarPage.DayButton, "class", "active"));
+
+        String Day = calendarPage.scheduleForDay.getText();
+        int MonthNumber = Integer.parseInt(calendarPage.scheduleForMonthAndYear.getAttribute("data-month")) + 1;
+        String Month = (MonthNumber == 1) ? "January" : (MonthNumber == 2) ? "February" : (MonthNumber == 3) ? "March" :
+                (MonthNumber == 4) ? "April" : (MonthNumber == 5) ? "May" : (MonthNumber == 6) ? "June" :
+                        (MonthNumber == 7) ? "July" : (MonthNumber == 8) ? "August" : (MonthNumber == 9) ? "September" :
+                                (MonthNumber == 10) ? "October" : (MonthNumber == 11) ? "November" : "December";
+
+        int Year = Integer.parseInt(calendarPage.scheduleForMonthAndYear.getAttribute("data-year"));
+        String expectedResult = "Meetings (" + Month + " " + Day + ", " + Year + ")";
+        String actualResult = calendarPage.DisplayedType.getText();
+        Assert.assertEquals(actualResult, expectedResult);
+        calendarPage.EveryBodysCalendarsCheckBox.click();
+        Assert.assertTrue(calendarPage.CreatedEventInTimeBox.isDisplayed());
+
     }
 
     @When("{string} reach events' details")
     public void reach_events_details(String string) {
-    }
+        calendarPage.CreatedEvent.click();
+        Assert.assertTrue(calendarPage.CreatedEventDetails.isDisplayed());
 
+    }
     @Then("{string} edit events")
     public void edit_events(String string) {
+        calendarPage.EditButton.click();
+        wait.until(ExpectedConditions.visibilityOf(calendarPage.SaveButton));
+        for (int i = 0; i < " posmanager".length(); i++) {
+            calendarPage.MeetingSubjectBox.sendKeys("" + " posmanager".charAt(i));
+        }
+        calendarPage.SaveButton.click();
+        wait.until(ExpectedConditions.invisibilityOf(calendarPage.LoadingWord));
+BrowserUtils.sleep(1);
+        Assert.assertEquals(calendarPage.CreatedEventInTimeBox.getText(), ConfigurationReader.getProperty("eventName")+" "+ConfigurationReader.getProperty("eventName")+" posmanager");
     }
-
-
-
 }
