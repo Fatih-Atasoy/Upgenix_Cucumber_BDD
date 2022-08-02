@@ -31,15 +31,17 @@ public class Inventory_Functionality_StepDev {
     @Then("Posmanager give the product name")
     public void posmanagerGiveTheProductName() {
 
+        createProductsPage.productNameField.sendKeys("Iphone 14");
     }
 
     @Then("Posmanager click the save button")
     public void posmanagerClickTheSaveButton() {
-
+        createProductsPage.saveButton.click();
     }
 
     @Then("Posmanager should see the product created")
     public void posmanagerShouldSeeTheProductCreated() {
+        createProductsPage.productCreatedMessage.isDisplayed();
     }
 
 

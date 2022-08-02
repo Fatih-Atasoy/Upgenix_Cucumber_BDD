@@ -12,16 +12,17 @@ public class CreateProductsPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy()
+    @FindBy(xpath = "//input[@class='o_field_char o_field_widget o_input o_required_modifier']")
     public WebElement productNameField;
 
-    @FindBy()
+    @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o_form_button_save']")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//strong[@class='o_thread_author ']")
     public WebElement productCreatedMessage;
 
     @FindBy(xpath = "//select[@class='o_input o_field_widget o_required_modifier']")
     public WebElement productSelectField;
-
-
 
 
     @FindBy(xpath = "(//input[@type='text'])[7]") // by name ?
