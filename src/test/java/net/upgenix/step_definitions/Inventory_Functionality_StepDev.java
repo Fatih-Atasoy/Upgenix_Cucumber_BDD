@@ -18,11 +18,11 @@ public class Inventory_Functionality_StepDev {
     @Given("User logged as posmanager")
     public void userLoggedAsPosmanager() {
 
-        Driver.getDriver().get(ConfigurationReader.getProperty("loginPageUrl"));
+        Driver.getDriver().get("https://qa.upgenix.net");
 
-        checkAndEditPage.inputEmail.sendKeys(ConfigurationReader.getProperty("username"));
+        checkAndEditPage.inputEmail.sendKeys("posmanager10@info.com");
 
-        checkAndEditPage.inputPassword.sendKeys(ConfigurationReader.getProperty("password"));
+        checkAndEditPage.inputPassword.sendKeys("posmanager");
 
         checkAndEditPage.loginButton.click();
 
