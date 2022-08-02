@@ -13,7 +13,7 @@ public class ProductPage {
 
     }
 
-    @FindBy()
+    @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o-kanban-button-new btn-default']")
     public WebElement createButton;
 
 

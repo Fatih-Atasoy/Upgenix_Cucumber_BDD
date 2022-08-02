@@ -20,15 +20,17 @@ public class Inventory_Functionality_StepDev {
 
     @When("Posmanager click the product button")
     public void posmanagerClickTheProductButton() {
-
+        inventoryPage.productButton.click();
     }
 
     @And("Posmanager click the create button")
     public void posmanagerClickTheCreateButton() {
+        productPage.createButton.click();
     }
 
     @Then("Posmanager give the product name")
     public void posmanagerGiveTheProductName() {
+
     }
 
     @Then("Posmanager click the save button")
