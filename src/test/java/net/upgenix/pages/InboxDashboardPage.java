@@ -5,15 +5,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class DashboardPage {
+public class InboxDashboardPage {
 
-    public DashboardPage(){
+    public InboxDashboardPage(){
 
         PageFactory.initElements(Driver.getDriver(),this);
 
     }
 
-    @FindBy()
+    @FindBy(xpath = "(//span[@class='oe_menu_text'])[10]")
     public WebElement inventoryButton;
 
 
