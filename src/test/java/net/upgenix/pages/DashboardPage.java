@@ -13,7 +13,7 @@ public class DashboardPage {
 
     }
 
-    @FindBy(xpath = "(//span[@class='oe_menu_text'])[10]")
+    @FindBy()
     public WebElement inventoryButton;
 
 
