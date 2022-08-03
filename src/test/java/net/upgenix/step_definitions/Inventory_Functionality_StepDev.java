@@ -45,5 +45,35 @@ public class Inventory_Functionality_StepDev {
     }
 
 
+    @When("Posmanager select the product type")
+    public void posmanagerSelectTheProductType() {
+        createProductsPage.productTypeSelect1.click();
 
+    }
+
+
+    @When("Posmanager set the sales price")
+    public void posmanagerSetTheSalesPrice() {
+        createProductsPage.salesPriceField.sendKeys("2399");
+    }
+
+    @Then("Posmanager set the cost price")
+    public void posmanagerSetTheCostPrice() {
+       createProductsPage.costPriceField.sendKeys("1599");
+    }
+
+
+    @Then("Posmanager can give a barcode number to product")
+    public void posmanagerCanGiveABarcodeNumberToProduct() {
+        createProductsPage.barcodeField.sendKeys("88888");
+    }
+
+
+
+
+    @Then("Posmanager select the category")
+    public void posmanagerSelectTheCategory() {
+        createProductsPage.categorySelect1.click();
+        createProductsPage.categorySelect2.click();
+    }
 }
