@@ -30,7 +30,6 @@ public class Inventory_StepDef_Hamdi {
         loginPage.userName.sendKeys(ConfigurationReader.getProperty("validUsername"));
         loginPage.password.sendKeys(ConfigurationReader.getProperty("validPassword"));
         loginPage.LoginButton.click();
-
         wait.until(ExpectedConditions.visibilityOf(inventoryPage.inventoryLink));
         inventoryPage.inventoryLink.click();
 
