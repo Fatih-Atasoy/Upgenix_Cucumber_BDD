@@ -28,6 +28,9 @@ public class CreateProductsPage {
 
 
 
+    @FindBy(xpath = "//input[@class='o_field_char o_field_widget o_input'][1]")
+    public WebElement internalReferenceField;
+
 
 
     @FindBy(xpath = "(//input[@type='text'])[7]") // by name ?

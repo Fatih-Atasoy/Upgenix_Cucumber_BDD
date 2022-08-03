@@ -64,9 +64,12 @@ Feature: Default
     Then  Posmanager give the product name
     When  Posmanager select the product type
     Then  Posmanager select the category
+    Then  Posmanager give the internal reference code
     Then  Posmanager can give a barcode number to product
     Then  Posmanager set the sales price
     Then  Posmanager set the cost price
+    Then  Posmanager click the save button
+    Then  Posmanager should see the product created
 
 
 
