@@ -66,7 +66,7 @@ public class Inventory_Functionality_StepDev {
 
     @Then("Posmanager can give a barcode number to product")
     public void posmanagerCanGiveABarcodeNumberToProduct() {
-        createProductsPage.barcodeField.sendKeys("8888812");
+        createProductsPage.barcodeField.sendKeys("99712");
     }
 
 
@@ -83,4 +83,9 @@ public class Inventory_Functionality_StepDev {
 
 
 
+    @Then("Posmanager search the product that created")
+    public void posmanagerSearchTheProductThatCreated() {
+       productPage.searchButton.sendKeys("Iphone 14");
+
+    }
 }
