@@ -3,6 +3,7 @@ package net.upgenix.step_definitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.bytebuddy.asm.Advice;
 import net.upgenix.pages.*;
 
 public class Inventory_Functionality_StepDev {
@@ -65,7 +66,7 @@ public class Inventory_Functionality_StepDev {
 
     @Then("Posmanager can give a barcode number to product")
     public void posmanagerCanGiveABarcodeNumberToProduct() {
-        createProductsPage.barcodeField.sendKeys("888881");
+        createProductsPage.barcodeField.sendKeys("888886");
     }
 
 
@@ -80,8 +81,9 @@ public class Inventory_Functionality_StepDev {
         createProductsPage.internalReferenceField.sendKeys("CMD-Master");
     }
 
-    @Then("Posmanager click the searh button")
-    public void posmanagerClickTheSearhButton() {
-        productPage.searchButton.sendKeys("Iphone 14");
+
+    @Then("Posmanager click the search button and search the product that created")
+    public void posmanagerClickTheSearchButtonAndSearchTheProductThatCreated() {
+     productPage.searchButton.sendKeys("Iphone 14");
     }
 }
