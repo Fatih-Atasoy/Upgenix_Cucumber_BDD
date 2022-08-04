@@ -70,7 +70,7 @@ Feature: Default
     Then  Posmanager set the cost price
     Then  Posmanager click the save button
     Then  Posmanager should see the product created
-    Then  Posmanager click the product button
+
 
 
 

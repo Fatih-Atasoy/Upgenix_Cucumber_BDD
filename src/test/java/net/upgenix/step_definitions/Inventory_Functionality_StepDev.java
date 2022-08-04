@@ -15,6 +15,7 @@ public class Inventory_Functionality_StepDev {
     CreateProductsPage createProductsPage = new CreateProductsPage();
 
 
+
     @When("Posmanager click the inventory button")
     public void posmanagerClickTheInventoryButton() {
         inboxDashboardPage.inventoryButton.click();
@@ -67,7 +68,7 @@ public class Inventory_Functionality_StepDev {
 
     @Then("Posmanager can give a barcode number to product")
     public void posmanagerCanGiveABarcodeNumberToProduct() {
-        createProductsPage.barcodeField.sendKeys("78787812");
+        createProductsPage.barcodeField.sendKeys("1236947853612");
     }
 
 

@@ -3,7 +3,7 @@ Feature: Default
 
 
   @SearchNewProduct
-  Scenario: Users  login for reaching other functionality
+  Scenario: Posmanager search the new product that created
     When User login for testing other functionality
     Then  Posmanager click the inventory button
     Then  Posmanager click the product button
