@@ -1,11 +1,17 @@
 package net.upgenix.step_definitions;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.bytebuddy.asm.Advice;
 import net.upgenix.pages.*;
+import net.upgenix.utilities.BrowserUtils;
+import net.upgenix.utilities.Driver;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Inventory_Functionality_StepDev {
 
@@ -13,12 +19,15 @@ public class Inventory_Functionality_StepDev {
     InventoryPage inventoryPage = new InventoryPage();
     ProductPage productPage = new ProductPage();
     CreateProductsPage createProductsPage = new CreateProductsPage();
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
+    Faker faker = new Faker();
 
 
 
     @When("Posmanager click the inventory button")
     public void posmanagerClickTheInventoryButton() {
         inboxDashboardPage.inventoryButton.click();
+        BrowserUtils.sleep(2);
     }
 
     @When("Posmanager click the product button")
@@ -68,7 +77,7 @@ public class Inventory_Functionality_StepDev {
 
     @Then("Posmanager can give a barcode number to product")
     public void posmanagerCanGiveABarcodeNumberToProduct() {
-        createProductsPage.barcodeField.sendKeys("1236947853612");
+        createProductsPage.barcodeField.sendKeys(faker.numerify("###-###-####"));
     }
 
 
@@ -84,8 +93,11 @@ public class Inventory_Functionality_StepDev {
     }
 
 
+
     @Then("Posmanager search the product that created")
     public void posmanagerSearchTheProductThatCreated() {
+        wait.until(ExpectedConditions.visibilityOf(productPage.searchButton));
         productPage.searchButton.sendKeys("Iphone 14" + Keys.ENTER);
+        BrowserUtils.sleep(2);
     }
 }
