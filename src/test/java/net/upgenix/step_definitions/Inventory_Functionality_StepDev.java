@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.bytebuddy.asm.Advice;
 import net.upgenix.pages.*;
+import org.openqa.selenium.Keys;
 
 public class Inventory_Functionality_StepDev {
 
@@ -82,10 +83,8 @@ public class Inventory_Functionality_StepDev {
     }
 
 
-
     @Then("Posmanager search the product that created")
     public void posmanagerSearchTheProductThatCreated() {
-       productPage.searchButton.sendKeys("Iphone 14");
-
+        productPage.searchButton.sendKeys("Iphone 14" + Keys.ENTER);
     }
 }
